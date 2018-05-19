@@ -32,4 +32,8 @@ else:
     type(res)
     # res is a BeautifulSoup object containing html response which has a hieratical structure
 
-    print(res.title)
+    # Handling tag that is not found on the scraped page
+    if res.title is None:
+        print("Tag not found")
+    else:
+        print(res.title)
