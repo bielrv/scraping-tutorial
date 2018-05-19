@@ -29,11 +29,32 @@ else:
     res = BeautifulSoup(html.read(),"html5lib");
     # html.read() is used to read the html
 
-    type(res)
-    # res is a BeautifulSoup object containing html response which has a hieratical structure
-
     # Handling tag that is not found on the scraped page
     if res.title is None:
         print("Tag not found")
     else:
         print(res.title)
+        type(res)
+        # res is a BeautifulSoup object containing html response which has a hieratical structure
+
+    tags = res.findAll("h2", {"class": "widget-title"})
+    # findAll extracts or filters elements based on their attributes
+    # This code returns all h2 tags with a class called widget-title
+    # where these tags are the home page post titles
+    print(tags)
+    for tag in tags:
+        print(tag.getText())
+
+    # filters based on a list of tags
+    tags = res.findAll("span", "a" "img")
+    for tag in tags:
+        print (tag.getText())
+
+    tags = res.findAll("a",{"class":["url","readmorebtn"]})
+    print (tags)
+
+    # filters the content based on the inner text
+    tags = res.findAll(text="Python")
+    print (tags)
+
+    # Finding nth Child Using Beautiful Soup
