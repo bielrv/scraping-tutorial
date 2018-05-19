@@ -58,3 +58,7 @@ else:
     print (tags)
 
     # Finding nth Child Using Beautiful Soup
+
+    ## getting children elements directly
+    tags = res.span.findAll("a")
+    print(tags)
