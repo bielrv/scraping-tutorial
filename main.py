@@ -23,6 +23,8 @@ try:
     # html points to the HTTPResponse
 except HTTPError as e:
     print(e)
+except URLError:
+    print("Server down or incorrect domain")
 else:
     res = BeautifulSoup(html.read(),"html5lib");
     # html.read() is used to read the html
